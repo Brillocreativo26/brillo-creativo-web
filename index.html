@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brillo Creativo - Papelería personalizada, stickers, planners, cuadernos y regalos hechos con amor.">
+  <title>Brillo Creativo | Papelería personalizada</title>
+  <style>
+    :root{
+      --pink:#f22b83;
+      --pink2:#ff6cae;
+      --soft:#fff0f7;
+      --blue:#102d69;
+      --text:#252538;
+      --white:#fff;
+      --shadow:0 12px 35px rgba(16,45,105,.12);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.94);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid #f4d7e5;
+    }
+    nav{
+      min-height:76px;display:flex;align-items:center;
+      justify-content:space-between;gap:20px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--blue)}
+    .brand img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+    .brand span{font-size:1.1rem}
+    .menu{display:flex;gap:22px;align-items:center;font-weight:700;font-size:.95rem}
+    .menu a:hover{color:var(--pink)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:13px 20px;border-radius:999px;font-weight:800;
+      border:0;cursor:pointer;transition:.2s;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--pink);color:white;box-shadow:0 8px 20px rgba(242,43,131,.25)}
+    .btn-blue{background:var(--blue);color:white}
+    .hero{
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,108,174,.20), transparent 28%),
+        radial-gradient(circle at 85% 70%, rgba(16,45,105,.10), transparent 28%),
+        linear-gradient(135deg,#fff 0%,#fff0f7 100%);
+      padding:70px 0 60px;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+    .eyebrow{
+      display:inline-block;background:#ffe0ee;color:var(--pink);
+      padding:7px 13px;border-radius:999px;font-weight:900;font-size:.85rem;margin-bottom:16px
+    }
+    h1{font-size:clamp(2.4rem,6vw,4.7rem);line-height:.98;color:var(--blue);margin-bottom:20px}
+    h1 span{color:var(--pink)}
+    .hero p{font-size:1.12rem;max-width:620px;color:#555}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+    .hero-logo{
+      width:min(420px,90%);margin:auto;display:block;border-radius:50%;
+      box-shadow:var(--shadow);
+    }
+    section{padding:70px 0}
+    .section-title{text-align:center;margin-bottom:38px}
+    .section-title h2{font-size:2.1rem;color:var(--blue)}
+    .section-title p{color:#6b6b78;margin-top:8px}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{
+      background:#fff;border:1px solid #f0dce7;border-radius:22px;
+      padding:24px;box-shadow:var(--shadow);
+    }
+    .icon{
+      width:58px;height:58px;border-radius:18px;background:var(--soft);
+      display:grid;place-items:center;font-size:1.8rem;margin-bottom:16px;
+    }
+    .card h3{color:var(--blue);margin-bottom:8px}
+    .card p{color:#666;margin-bottom:17px}
+    .price{font-weight:900;color:var(--pink);font-size:1.2rem}
+    .about{
+      background:var(--blue);color:white;
+      border-radius:30px;padding:45px;
+      display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center;
+    }
+    .about h2{font-size:2.2rem;margin-bottom:12px}
+    .about p{color:#e8ecf8}
+    .bullets{display:grid;gap:12px}
+    .bullet{background:rgba(255,255,255,.1);padding:15px 18px;border-radius:15px}
+    .order{
+      background:linear-gradient(135deg,#fff0f7,#fff);
+      border:1px solid #f3d8e6;border-radius:30px;padding:45px;
+    }
+    form{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+    input,select,textarea{
+      width:100%;padding:14px 16px;border:1px solid #e1d7df;
+      border-radius:13px;font:inherit;outline:none;background:white;
+    }
+    input:focus,select:focus,textarea:focus{border-color:var(--pink)}
+    textarea{min-height:120px;resize:vertical;grid-column:1/-1}
+    form .full{grid-column:1/-1}
+    footer{background:#101d3e;color:white;padding:35px 0}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+    .social{display:flex;gap:10px}
+    .social a{background:rgba(255,255,255,.1);padding:9px 13px;border-radius:999px}
+    .float{
+      position:fixed;right:18px;bottom:18px;z-index:30;
+      background:#25D366;color:white;padding:14px 18px;border-radius:999px;
+      font-weight:900;box-shadow:0 10px 25px rgba(0,0,0,.2)
+    }
+    @media(max-width:800px){
+      .menu{display:none}
+      .hero-grid,.about{grid-template-columns:1fr}
+      .hero{text-align:center}.hero p{margin:auto}.actions{justify-content:center}
+      .products{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+      textarea,.full{grid-column:auto}
+      .about{padding:30px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#inicio">
+        <img src="logo.png" alt="Logo Brillo Creativo">
+        <span>Brillo Creativo</span>
+      </a>
+      <div class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#pedido">Pedido</a>
+        <a class="btn btn-primary" href="https://wa.me/59899333862" target="_blank">WhatsApp</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">✨ Papelería personalizada</div>
+        <h1>Ideas que se convierten en <span>cosas lindas.</span></h1>
+        <p>Cuadernos, stickers, planners, souvenirs y productos personalizados hechos con mucho cariño.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#productos">Ver productos</a>
+          <a class="btn btn-blue" href="https://wa.me/59899333862?text=Hola%20Brillo%20Creativo%21%20Quiero%20hacer%20una%20consulta." target="_blank">Consultar por WhatsApp</a>
+        </div>
+      </div>
+      <div><img class="hero-logo" src="logo.png" alt="Brillo Creativo"></div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <div class="container">
+      <div class="section-title">
+        <h2>🛍️ Nuestros productos</h2>
+        <p>Elegí una categoría y consultanos por tu diseño personalizado.</p>
+      </div>
+      <div class="products">
+        <article class="card">
+          <div class="icon">📓</div>
+          <h3>Cuadernos y libretas</h3>
+          <p>Tapas personalizadas, distintos tamaños y terminaciones.</p>
+          <span class="price">Consultar</span>
+        </article>
+        <article class="card">
+          <div class="icon">✨</div>
+          <h3>Stickers</h3>
+          <p>Stickers personalizados, etiquetas y diseños para cada ocasión.</p>
+          <span class="price">Consultar</span>
+        </article>
+        <article class="card">
+          <div class="icon">📅</div>
+          <h3>Planners</h3>
+          <p>Organizá tu semana con planners prácticos y personalizados.</p>
+          <span class="price">Consultar</span>
+        </article>
+        <article class="card">
+          <div class="icon">🎁</div>
+          <h3>Souvenirs</h3>
+          <p>Detalles para cumpleaños, eventos, escuelas y celebraciones.</p>
+          <span class="price">Consultar</span>
+        </article>
+        <article class="card">
+          <div class="icon">🏷️</div>
+          <h3>Etiquetas</h3>
+          <p>Etiquetas para útiles, regalos, productos y emprendimientos.</p>
+          <span class="price">Consultar</span>
+        </article>
+        <article class="card">
+          <div class="icon">💖</div>
+          <h3>Personalizados</h3>
+          <p>¿Tenés una idea? Contanos y buscamos juntos cómo hacerla.</p>
+          <span class="price">Pedir diseño</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <div class="container">
+      <div class="about">
+        <div>
+          <h2>Hecho especialmente para vos 💕</h2>
+          <p>En Brillo Creativo transformamos ideas, nombres y momentos especiales en productos únicos.</p>
+        </div>
+        <div class="bullets">
+          <div class="bullet">✨ Diseños personalizados</div>
+          <div class="bullet">📦 Pedidos preparados con cuidado</div>
+          <div class="bullet">💬 Atención directa por WhatsApp</div>
+          <div class="bullet">🎀 Productos para regalar o disfrutar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pedido">
+    <div class="container">
+      <div class="section-title">
+        <h2>💌 Hacé tu pedido</h2>
+        <p>Completá los datos y te llevamos directamente a WhatsApp.</p>
+      </div>
+      <div class="order">
+        <form id="orderForm">
+          <input id="name" required placeholder="Tu nombre">
+          <input id="product" required placeholder="¿Qué producto querés?">
+          <input id="quantity" type="number" min="1" value="1" placeholder="Cantidad">
+          <input id="custom" placeholder="Nombre o personalización">
+          <textarea id="details" placeholder="Contanos colores, temática, tamaño u otros detalles"></textarea>
+          <button class="btn btn-primary full" type="submit">Enviar pedido por WhatsApp 💚</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="float" href="https://wa.me/59899333862" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <div class="container footer-grid">
+    <div><strong>Brillo Creativo</strong><br><small>Papelería personalizada</small></div>
+    <div class="social">
+      <a href="https://instagram.com/brillocreativo2026" target="_blank">📸 Instagram</a>
+      <a href="https://wa.me/59899333862" target="_blank">💬 WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const product = document.getElementById('product').value.trim();
+  const quantity = document.getElementById('quantity').value;
+  const custom = document.getElementById('custom').value.trim();
+  const details = document.getElementById('details').value.trim();
+
+  const msg =
+`Hola Brillo Creativo! 💕
+Quiero hacer un pedido.
+
+👤 Nombre: ${name}
+🛍️ Producto: ${product}
+🔢 Cantidad: ${quantity}
+✨ Personalización: ${custom || 'No especificada'}
+📝 Detalles: ${details || 'Sin detalles adicionales'}`;
+
+  window.open('https://wa.me/59899333862?text=' + encodeURIComponent(msg), '_blank');
+});
+</script>
+</body>
+</html>
