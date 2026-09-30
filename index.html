@@ -167,7 +167,7 @@
         <p>Elegí una categoría y consultanos por tu diseño personalizado.</p>
       </div>
       <div class="products">
-        <article class="card" onclick="document.getElementById('cuadernos').style.display='block';document.getElementById('cuadernos').scrollIntoView({behavior:'smooth'})">
+        <article class="card" onclick="document.getElementById('cuadernos').style.display='block'">
           <div class="icon">📓</div>
           <h3>Cuadernos y libretas</h3>
           <p>Tapas personalizadas, distintos tamaños y terminaciones.</p>
@@ -203,7 +203,8 @@
           <p>¿Tenés una idea? Contanos y buscamos juntos cómo hacerla.</p>
           <span class="price">Pedir diseño</span>
         </article>
-        <div id="cuadernos" style="display:none">
+        <div id="cuadernos" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.88);overflow-y:auto;padding:20px">
+          <button onclick="document.getElementById('cuadernos').style.display='none'" style="position:sticky;top:0;float:right;font-size:30px;border:0;background:white;border-radius:50%;width:45px;height:45px;z-index:10000">×</button>
           <img src="IMG-20260928-WA0026.jpg" alt="Libreta con sistema de disco">
           <h3>Libretas con sistema de disco</h3>
           <p>Libretas personalizadas con sistema de disco.</p>
